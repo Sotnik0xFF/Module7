@@ -14,5 +14,12 @@ namespace Module7
         {
             return new Order(new TDelivery());
         }
+
+        public static Order Make<TDelivery>(Address deliveryAddress) where TDelivery : DeliveryMethod, new()
+        {
+            Order result = Make<TDelivery>();
+            result.DeliveryMethod.Address = deliveryAddress;
+            return result;
+        }
     }
 }
