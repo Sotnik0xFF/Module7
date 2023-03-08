@@ -18,7 +18,7 @@ namespace Module7.DeliveryMethods
 
         public TCourier Courier { get; }
 
-        public override string Details => $"Home delivery - {Courier.Details}";
+        public override string Details => $"Home delivery - {Courier.Details}\n" + base.Details;
 
 
     }

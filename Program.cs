@@ -11,13 +11,16 @@ namespace Module7
         static void Main(string[] args)
         {
             DeliveryMethod homeDeliveryByCompany = MakeHomeDeliveryByCompany(
-                new Address("Respublika Krakozhiya", "", "Pretoska", "Lenina, 50a"),
+                new Address("Respublika Krakozhiya", "Pretoska obl.", "Pretoska", "Lenina, 50a"),
                 "Horns and hooves Corp.");
 
             Order order = new Order(homeDeliveryByCompany);
 
             order.AddItem("Koza pills", 100);
             Console.WriteLine(order.Description);
+            Console.WriteLine(order.DeliveryMethod.Address.ExFormat());
+
+            Order order2 = OrderFactory.Make<ShopDelivery>();
         }
 
         public static DeliveryMethod MakeHomeDeliveryByCompany(Address address, string companyName)

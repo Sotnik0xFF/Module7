@@ -31,6 +31,9 @@ namespace Module7.OrderAggregate
             }
             set => address = value;
         }
-        public abstract string Details { get; }
+        public virtual string Details
+        {
+            get => Address.ToString();
+        }
     }
 }
